@@ -14,7 +14,7 @@ window.onload = () => {
 
   const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
 
-  // ================= VOICE INPUT =================
+  // voice input
   if (SpeechRecognition) {
     const recognition = new SpeechRecognition();
     recognition.lang = "en-US";
@@ -47,7 +47,7 @@ window.onload = () => {
   let attachedImage = null;
   let attachedDoc = null;
 
-  // ================= MENU TOGGLE =================
+  // menu toggle
   plusBtn.onclick = () => {
     uploadMenu.style.display =
       uploadMenu.style.display === "block" ? "none" : "block";
@@ -63,7 +63,7 @@ window.onload = () => {
     uploadMenu.style.display = "none";
   };
 
-  // ================= IMAGE UPLOAD =================
+  // image upload
   imageInput.onchange = () => {
     const file = imageInput.files[0];
     if (!file) return;
@@ -114,7 +114,7 @@ window.onload = () => {
     };
   };
 
-  // ================= DOCUMENT UPLOAD =================
+  // Document upload
   docInput.onchange = () => {
     attachedDoc = docInput.files[0];
 
@@ -128,7 +128,7 @@ window.onload = () => {
     }
   };
 
-  // ================= SEND BUTTON =================
+  // send button
   sendBtn.onclick = () => {
     const message = input.value.trim();
 
@@ -190,7 +190,7 @@ window.onload = () => {
     startStream(formData, liveId);
   };
 
-  // ================= ENTER KEY SEND =================
+  // enter key send
   input.addEventListener("keydown", (e) => {
     if (e.key === "Enter" && !e.shiftKey) {
       e.preventDefault();
