@@ -21,7 +21,7 @@ def stream():
 
     encoded_img = None
 
-    # ✅ IMAGE HANDLING
+    # IMAGE HANDLING
     if user_img:
         try:
             print("[📸 Image received]", user_img.filename, user_img.content_type)
@@ -39,7 +39,7 @@ def stream():
     else:
         print("[⚠️ No image received]")
 
-    # ✅ DOCUMENT HANDLING
+    # DOCUMENT HANDLING
     if user_doc:
         try:
             print("[📄 Document received]", user_doc.filename)
