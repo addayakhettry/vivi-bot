@@ -194,3 +194,7 @@ strong {
 .messageRow.bot {
   justify-content: flex-start;
 }
+
+.botError {
+  color: #f00;
+}
