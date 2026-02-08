@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Vivi Chat</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <script src="{{ url_for('static', filename='js/script.js') }}" defer></script>
+</head>
+
+<body>
+  <h2>Vivi</h2>
+
+  <div id="chatBox"></div>
+
+  <div id="inputRow">
+    <div id="inputContainer">
+      <input type="text" id="userInput" placeholder="Type your message..." />
+      <div id="previewContainer">
+        <img id="preview" />
+      </div>
+    </div>
+
+    <button id="voiceBtn">🎤</button>
+    <button id="plusBtn">➕</button>
+    <button id="sendBtn">Send</button>
+
+    <div id="uploadMenu">
+      <button id="imageIcon">📷</button>
+      <button id="docIcon">📄</button>
+    </div>
+  </div>
+
+  <input type="file" id="imageInput" accept="image/*" />
+  <input type="file" id="docInput" accept=".pdf,.doc,.docx,.txt" />
+</body>
+</html>
