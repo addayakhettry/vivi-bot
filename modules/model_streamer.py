@@ -4,7 +4,6 @@ def stream_response(user_msg, encoded_img=None):
     try:
         prompt = user_msg.strip() if user_msg else "Hello"
 
-        # ✅ If image exists, use multimodal format
         if encoded_img:
             messages = [
                 {
