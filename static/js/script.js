@@ -215,23 +215,11 @@ window.onload = () => {
         reader.read().then(({ value, done }) => {
           if (done) return;
 
-          buffer += decoder.decode(value, { stream: true });
+          const chunk = decoder.decode(value, { stream: true });
+          if (chunk === "\0") return;
 
-          const lines = buffer.split("\n\n");
-          buffer = lines.pop();
-
-          for (const line of lines) {
-            if (!line.startsWith("data:")) continue;
-
-            const textChunk = line.slice(5).trim();
-
-            if (!textChunk) continue;
-
-            if (textChunk === "[DONE]") return;
-
-            liveText.innerHTML += textChunk.replace(/\n/g, "<br>") + " ";
-            chatBox.scrollTop = chatBox.scrollHeight;
-          }
+          liveText.innerHTML += chunk;
+          chatBox.scrollTop = chatBox.scrollHeight;
 
           read();
         });

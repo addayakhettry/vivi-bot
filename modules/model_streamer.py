@@ -46,10 +46,11 @@ def stream_response(user_msg, encoded_img=None):
 
         for chunk in stream:
             if chunk.message.content:
-                yield f"data: {chunk.message.content}\n\n"
-
-        yield "data: [DONE]\n\n"
+                # Make sure the model does not pass any NULLs. This is the
+                # stream terminator.
+                yield chunk.message.content.replace("\0", "")
 
     except Exception as e:
-        yield f"data: [Stream error: {e}]\n\n"
-        yield "data: [DONE]\n\n"
+        yield f"<p class=\"botError\">[Stream error: {e}]</p>"
+
+    yield "\0"
