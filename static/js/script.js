@@ -79,8 +79,8 @@ window.onload = () => {
 
     img.onload = () => {
       const canvas = document.createElement("canvas");
-      const maxWidth = 800;
-      const scale = maxWidth / img.width;
+      const maxWidth = 128;
+      const scale = (maxWidth < img.width) ? maxWidth / img.width : 1;
 
       canvas.width = maxWidth;
       canvas.height = img.height * scale;
