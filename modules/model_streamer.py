@@ -31,7 +31,7 @@ def stream_response(user_msg, encoded_img=None):
             ]
 
         stream = ollama.chat(
-            model="qwen2.5vl:3b",
+            model="granite3.2-vision:2b",
             messages=messages,
             think=False,
             stream=True,
@@ -39,7 +39,7 @@ def stream_response(user_msg, encoded_img=None):
                 "num_predict": 200,
                 "temperature": 0.6,
                 "top_p": 0.9,
-                "num_ctx": 2 ** 16,
+                "num_ctx": 2 ** 8,
             },
         )
 
